@@ -8,15 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Room extends World
 {
-    LifeMan lm;
+LifeMan lm;
     /**
      * Constructor for objects of class Room.
      * 
      */
-    public Room()
+    RoomMan[] roomManager;
+    public Room(RoomMan[] roomMan)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1282, 706, 1); 
+        super(1282, 706, 1);
+        
+        roomManager = roomMan;
         
         final int DOOR_POS_NORTH = 0;
         final int DOOR_POS_EAST = 1;
@@ -29,19 +31,19 @@ public class Room extends World
             {
                 if(y == 32)//north
                 {
-                    if(x == 672) this.addObject(new Door(DOOR_POS_NORTH), x, y);
+                    if(x == 672) this.addObject(new Door(DOOR_POS_NORTH, roomManager), x, y);
                     else this.addObject(new OuterWall(), x, y);
                 }
                 else if(y > 608)//south
-                    if(x == 672) this.addObject(new Door(DOOR_POS_SOUTH), x, y);
+                    if(x == 672) this.addObject(new Door(DOOR_POS_SOUTH, roomManager), x, y);
                     else this.addObject(new OuterWall(), x, y);
                 else if(x == 32)//west
                 {
-                    if(y == 352) this.addObject(new Door(DOOR_POS_WEST), x, y);
+                    if(y == 352) this.addObject(new Door(DOOR_POS_WEST, roomManager), x, y);
                     else this.addObject(new OuterWall(), x, y);
                 }
                 else if(x > 1184)//east
-                    if(y == 352) this.addObject(new Door(DOOR_POS_EAST), x, y);
+                    if(y == 352) this.addObject(new Door(DOOR_POS_EAST, roomManager), x, y);
                     else this.addObject(new OuterWall(), x, y);
             }
         }
@@ -49,5 +51,9 @@ public class Room extends World
         WindowBorder wb = new WindowBorder();//set the window borders to 0,0 so it goes round the whole game
         this.addObject(wb, 641, 353);//ALWAYS do this last, so the border gets drawn on top!!!
         lm = new LifeMan(this);
+        
     }
 }
+
+
+

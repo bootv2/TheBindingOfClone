@@ -21,8 +21,13 @@ public class Door extends Actor
     final int TURNING_DEGREES_SOUTH = 180;
     final int TURNING_DEGREES_WEST = 270;
     
-    public Door(int position)
+    boolean opened = false;
+    
+    RoomMan[] roomMan;
+    
+    public Door(int position, RoomMan[] roomManager)
     {
+        roomMan = roomManager;
         switch(position)
         {
             case 0:
@@ -42,6 +47,11 @@ public class Door extends Actor
     
     public void act() 
     {
+        if(this.getObjectsInRange(1500, AI.class).size() == 0)
+        {
+            opened = true;
+            this.setImage("OpenDoor.png");
+        }
         // Add your action code here.
     }    
 }
