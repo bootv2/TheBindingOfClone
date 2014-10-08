@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class RoomMan  
 {
     // instance variables - replace the example below with your own
-    private int x;
+    final int CELLAR_DIMENSIONS = 10;
     
     Room[][] rooms;
 
@@ -21,10 +21,25 @@ public class RoomMan
     {   
     }
     
+    /**
+     * This function binds the reference to the room array array to this class(object)
+     * This function also selects a spawn point for the player
+     */
     public void setRooms(Room[][] r)
     {
         rooms = r;
-        Greenfoot.setWorld(rooms[2][2]);
+        
+        int startX, startY;
+        startX = Greenfoot.getRandomNumber(CELLAR_DIMENSIONS);
+        startY = Greenfoot.getRandomNumber(CELLAR_DIMENSIONS);
+        
+        while(rooms[startX][startY] == null)
+        {
+            startX = Greenfoot.getRandomNumber(CELLAR_DIMENSIONS);
+            startY = Greenfoot.getRandomNumber(CELLAR_DIMENSIONS);
+        }
+        
+        Greenfoot.setWorld(rooms[startX][startY]);
     }
     
     public void setCurrentRoom(int x, int y)
