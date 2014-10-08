@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player extends Actor
+public class Player extends Mover
 {
     /**
      * Act - do whatever the Pickup wants to do. This method is called whenever
@@ -14,14 +14,15 @@ public class Player extends Actor
      */
     public void act() 
     {
+        
     if(Greenfoot.isKeyDown("right")){
             moveRight();
             animRight();
-    }
+        }
     if(Greenfoot.isKeyDown("left")){
             moveLeft();
             animLeft();
-    }
+        }
     if(Greenfoot.isKeyDown("up")){
             moveUp();
             animUp();
@@ -30,6 +31,19 @@ public class Player extends Actor
             moveDown();
             animDown();
     }   
+    if(Greenfoot.isKeyDown("w")){
+        this.getWorld().addObject(new Arrow(3), this.getX(), this.getY());
+    }
+    if(Greenfoot.isKeyDown("a")){
+        this.getWorld().addObject(new Arrow(2), this.getX(), this.getY());
+    }
+    if(Greenfoot.isKeyDown("s")){
+        this.getWorld().addObject(new Arrow(1), this.getX(), this.getY());
+    }
+    if(Greenfoot.isKeyDown("d")){
+        this.getWorld().addObject(new Arrow(0), this.getX(), this.getY());
+    }
+        
 }
 private void animRight()
     {
@@ -91,6 +105,9 @@ private void animRight()
     {
         setLocation(getX() , getY() + 5);
     }
+
+
+public int rotation;
 private int frameRight;
 private int frameLeft;
 private int frameUp;
