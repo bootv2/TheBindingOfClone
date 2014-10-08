@@ -17,7 +17,6 @@ LifeMan lm;
     public Room(RoomMan[] roomMan)
     {    
         super(1282, 706, 1);
-        
         roomManager = roomMan;
         
         final int DOOR_POS_NORTH = 0;

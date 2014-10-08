@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=RoomSelector()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ RoomSelector.\r\n\ This\ is\ launched\ at\ game\ launch,\ this\ generates\ a\ cellar,\ creates\ a\ roomManager.\r\n\ This\ switches\ to\ a\ random\ existing\ room\ after\ generating\r\n\ This\ IS\ NOT\ AN\ INFINITE\ LOOP\!\!\!\ generating\ a\ map\ in\ a\ 10*10\ room\ space\ takes\ a\ while.\r\n
 comment1.params=x\ y
 comment1.target=void\ setRoom(int,\ int)
+comment1.text=\r\n\ this\ function\ sets\ the\ room\ the\ player\ will\ play\ in.\r\n\ since\ the\ map\ is\ a\ 2d\ composition\ of\ rooms,\ you\ have\ to\ select\ a\ position\ on\ this\ 2d\ plane.\r\n\ @param\ Integer\ x\ position\r\n\ @param\ Integer\ y\ position\r\n
 comment2.params=
 comment2.target=void\ bindRooms()
 comment3.params=

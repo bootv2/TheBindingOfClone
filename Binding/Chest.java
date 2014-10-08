@@ -26,10 +26,13 @@ public class Chest extends StaticObjects
         {
             int spawnXOffset = Greenfoot.getRandomNumber(100) - 50;
             int spawnYOffset = Greenfoot.getRandomNumber(100) - 50;
-            switch(Greenfoot.getRandomNumber(1))
+            switch(Greenfoot.getRandomNumber(2))
             {
                 case 0:
                     this.getWorld().addObject(new Life(), this.getX() + spawnXOffset, this.getY() + spawnYOffset);
+                    break;
+                case 1:
+                    this.getWorld().addObject(new PickupBomb(), this.getX() + spawnXOffset, this.getY() + spawnYOffset);
                     break;
             }
             
